@@ -1,0 +1,177 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-header {
+    height: 60px;
+    background-color: var(--panel-header-background);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid var(--border-default);
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.search-container {
+    height: 49px;
+    border-bottom: 1px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #fff;
+}
+
+.search-wrapper {
+    background-color: var(--intro-background);
+    flex: 1;
+    height: 35px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.search-icon {
+    color: var(--secondary);
+    margin-right: 12px;
+    /* moved check */
+    margin-top: 2px;
+}
+
+.search-wrapper input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    color: var(--primary-strong);
+}
+
+.search-wrapper input::placeholder {
+    color: var(--secondary);
+}
+
+.filter-btn {
+    margin-left: 10px;
+    padding: 4px;
+}
+
+.contact-list-container {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.contact-row {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.contact-row:hover {
+    background-color: var(--intro-background);
+}
+
+.contact-avatar img {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 13px;
+}
+
+.contact-info {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-strong);
+    padding-right: 10px;
+}
+
+.info-top,
+.info-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 22px;
+}
+
+.contact-name {
+    font-size: 17px;
+    color: #111b21;
+}
+
+.contact-time {
+    font-size: 12px;
+    color: var(--secondary-lighter);
+}
+
+.contact-time.unread {
+    color: var(--unread-marker-background);
+    font-weight: 600;
+}
+
+.last-message {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--secondary);
+    max-width: 250px;
+}
+
+.msg-preview {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.double-check {
+    color: var(--icon-ack);
+    /* Blue Check */
+    font-size: 11px;
+    margin-right: 4px;
+}
+
+.meta-icons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.unread-badge {
+    background-color: var(--unread-marker-background);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.muted-icon {
+    font-size: 14px;
+    color: var(--secondary-lighter);
+}

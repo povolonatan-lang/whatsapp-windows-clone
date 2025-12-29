@@ -1,0 +1,80 @@
+:root {
+  /* WhatsApp Web Light Application Variables */
+  --app-background: #d1d7db;
+  /* The dark greyish background behind the app */
+  --intro-background: #f0f2f5;
+  --panel-header-background: #f0f2f5;
+  --conversation-panel-background: #efeae2;
+  /* Chat background image usually sits here */
+
+  --primary-green: #008069;
+  --compose-primary: #f0f2f5;
+  --incoming-background: #ffffff;
+  --outgoing-background: #d9fdd3;
+  --dropdown-background: #ffffff;
+
+  --primary-strong: #111b21;
+  --secondary: #54656f;
+  --secondary-lighter: #667781;
+
+  --border-default: #d1d7db;
+  /* Separators */
+  --border-strong: #e9edef;
+
+  --system-message-text: #54656f;
+  --unread-marker-background: #25d366;
+  --icon-ack: #53bdeb;
+  /* Blue ticks */
+  --icon-ack-pending: #8696a0;
+  /* Grey ticks */
+
+  --danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--app-background);
+  color: var(--primary-strong);
+  overflow: hidden;
+  /* App handles scroll */
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Center the app on large screens */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 20, 26, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  background: hsla(0, 0%, 100%, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
