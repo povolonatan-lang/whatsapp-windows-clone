@@ -19,7 +19,7 @@ const INITIAL_CONTACTS = [
     {
         id: 2,
         name: 'La iglesia de Prinzipus 0 😈',
-        avatar: 'https://ui-avatars.com/api/?name=I&background=ffffff&color=000',
+        avatar: '/iglesia_avatar.jpg',
         lastMessage: 'Alejo: God',
         time: '5:23 p.m.',
         unread: 1,
@@ -28,7 +28,7 @@ const INITIAL_CONTACTS = [
     {
         id: 3,
         name: 'Futbol SemEnal',
-        avatar: 'https://ui-avatars.com/api/?name=F&background=ef4444&color=fff',
+        avatar: '/futbol_avatar.jpg',
         lastMessage: 'Manuel: Buenos equipos',
         time: '5:02 p.m.',
         unread: 1,
@@ -37,7 +37,7 @@ const INITIAL_CONTACTS = [
     {
         id: 4,
         name: 'Viejo',
-        avatar: 'https://ui-avatars.com/api/?name=V&background=71717a&color=fff',
+        avatar: '/viejo_avatar.jpg',
         lastMessage: 'ya salio la nueva temporada de JJK',
         time: '3:36 p.m.',
         unread: 0,
@@ -46,7 +46,7 @@ const INITIAL_CONTACTS = [
     {
         id: 5,
         name: 'Manuel',
-        avatar: 'https://ui-avatars.com/api/?name=M&background=00a884&color=fff',
+        avatar: '/manuel_avatar.jpg',
         lastMessage: 'vamos al cine hoy!!',
         time: '2:19 p.m.',
         unread: 0,
@@ -79,7 +79,7 @@ const INITIAL_MESSAGES = {
 export const AppProvider = ({ children }) => {
     const [contacts, setContacts] = useState(INITIAL_CONTACTS);
     const [messages, setMessages] = useState(INITIAL_MESSAGES);
-    const [currentUser] = useState({ name: 'Me', id: 'me', avatar: 'https://ui-avatars.com/api/?name=Me' });
+    const [currentUser] = useState({ name: 'Me', id: 'me', avatar: '/me_avatar.jpg' });
 
     const sendMessage = (chatId, text) => {
         const newMessage = {
@@ -101,8 +101,26 @@ export const AppProvider = ({ children }) => {
         ));
     };
 
+    const markChatAsRead = (chatId) => {
+        setContacts(prev => prev.map(c =>
+            c.id === Number(chatId) ? { ...c, unread: 0 } : c
+        ));
+    };
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleDarkMode = () => setDarkMode(prev => !prev);
+
+    React.useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }, [darkMode]);
+
     return (
-        <AppContext.Provider value={{ contacts, messages, currentUser, sendMessage }}>
+        <AppContext.Provider value={{ contacts, messages, currentUser, sendMessage, markChatAsRead, darkMode, toggleDarkMode }}>
             {children}
         </AppContext.Provider>
     );

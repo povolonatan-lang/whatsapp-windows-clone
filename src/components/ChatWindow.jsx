@@ -7,16 +7,22 @@ import './ChatWindow.css';
 const ChatWindow = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { contacts, messages, sendMessage, currentUser } = useAppContext();
+    const { contacts, messages, sendMessage, currentUser, darkMode, markChatAsRead } = useAppContext();
     const [text, setText] = useState('');
     const bottomRef = useRef(null);
 
     const contact = contacts.find(c => c.id === Number(id));
     const chatMessages = messages[id] || [];
 
+    // Dynamic icon color
+    const iconColor = darkMode ? '#8696a0' : '#54656f';
+
     useEffect(() => {
+        if (contact && contact.unread > 0) {
+            markChatAsRead(id);
+        }
         bottomRef.current?.scrollIntoView({ behavior: 'auto' });
-    }, [chatMessages, id]);
+    }, [chatMessages, id, markChatAsRead, contact]);
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -32,7 +38,7 @@ const ChatWindow = () => {
         <div className="chat-window">
             <header className="chat-header">
                 <button className="back-btn" onClick={() => navigate('/')}>
-                    <ArrowLeft size={24} />
+                    <ArrowLeft size={24} color={iconColor} />
                 </button>
                 <img src={contact.avatar} alt={contact.name} className="header-avatar" />
                 <div className="header-info">
@@ -40,11 +46,11 @@ const ChatWindow = () => {
                     <span className="header-status">online</span>
                 </div>
                 <div className="header-actions">
-                    <button title="Videollamada"><Video size={20} color="#54656f" /></button>
-                    <button title="Llamada"><Phone size={20} color="#54656f" /></button>
+                    <button title="Videollamada"><Video size={20} color={iconColor} /></button>
+                    <button title="Llamada"><Phone size={20} color={iconColor} /></button>
                     <div className="divider"></div>
-                    <button title="Buscar"><Search size={20} color="#54656f" /></button>
-                    <button title="Menú"><MoreVertical size={20} color="#54656f" /></button>
+                    <button title="Buscar"><Search size={20} color={iconColor} /></button>
+                    <button title="Menú"><MoreVertical size={20} color={iconColor} /></button>
                 </div>
             </header>
 
@@ -71,8 +77,8 @@ const ChatWindow = () => {
             </div>
 
             <footer className="chat-footer">
-                <button title="Emojis"><Smile size={24} color="#54656f" /></button>
-                <button title="Adjuntar"><Plus size={24} color="#54656f" /></button>
+                <button title="Emojis"><Smile size={24} color={iconColor} /></button>
+                <button title="Adjuntar"><Plus size={24} color={iconColor} /></button>
                 <form onSubmit={handleSend} className="input-form">
                     <input
                         type="text"
@@ -82,9 +88,9 @@ const ChatWindow = () => {
                     />
                 </form>
                 {text ? (
-                    <button onClick={handleSend}><Send size={24} color="#54656f" /></button>
+                    <button onClick={handleSend}><Send size={24} color={iconColor} /></button>
                 ) : (
-                    <button title="Nota de voz"><Mic size={24} color="#54656f" /></button>
+                    <button title="Nota de voz"><Mic size={24} color={iconColor} /></button>
                 )}
             </footer>
         </div>

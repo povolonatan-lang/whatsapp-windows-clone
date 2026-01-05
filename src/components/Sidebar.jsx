@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MessageSquarePlus, MoreVertical, CircleDashed, Users, Search, Filter } from 'lucide-react';
+import { MessageSquarePlus, MoreVertical, CircleDashed, Users, Search, Filter, Moon, Sun } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 import './Sidebar.css';
 
 const Sidebar = () => {
-    const { contacts, currentUser } = useAppContext();
+    const { contacts, currentUser, darkMode, toggleDarkMode } = useAppContext();
     const navigate = useNavigate();
     const [query, setQuery] = useState('');
 
     const filtered = contacts.filter(c => c.name.toLowerCase().includes(query.toLowerCase()));
+
+    // Dynamic icon color based on theme
+    const iconColor = darkMode ? '#8696a0' : '#54656f';
 
     return (
         <div className="sidebar">
@@ -19,27 +22,29 @@ const Sidebar = () => {
                 </div>
                 <div className="header-actions">
                     <button title="Comunidades">
-                        <Users size={20} strokeWidth={2} color="#54656f" />
+                        <Users size={20} strokeWidth={2} color={iconColor} />
                     </button>
                     <button title="Estados">
-                        <CircleDashed size={20} strokeWidth={2} color="#54656f" />
+                        <CircleDashed size={20} strokeWidth={2} color={iconColor} />
                     </button>
                     <button title="Canales">
-                        <MessageSquarePlus size={20} strokeWidth={2} color="#54656f" />
-                        {/* Using MsgSquarePlus as placeholder for Channels since Lucide might not have the exact grid icon */}
+                        <MessageSquarePlus size={20} strokeWidth={2} color={iconColor} />
                     </button>
                     <button title="Nuevo chat">
-                        <MessageSquarePlus size={20} strokeWidth={2} color="#54656f" />
+                        <MessageSquarePlus size={20} strokeWidth={2} color={iconColor} />
+                    </button>
+                    <button onClick={toggleDarkMode} title={darkMode ? "Modo Claro" : "Modo Oscuro"}>
+                        {darkMode ? <Sun size={20} strokeWidth={2} color={iconColor} /> : <Moon size={20} strokeWidth={2} color={iconColor} />}
                     </button>
                     <button title="Menú">
-                        <MoreVertical size={20} strokeWidth={2} color="#54656f" />
+                        <MoreVertical size={20} strokeWidth={2} color={iconColor} />
                     </button>
                 </div>
             </header>
 
             <div className="search-container">
                 <div className="search-wrapper">
-                    <Search size={18} className="search-icon" />
+                    <Search size={18} className="search-icon" color={iconColor} />
                     <input
                         type="text"
                         placeholder="Busca un chat o inicia uno nuevo."
@@ -48,7 +53,7 @@ const Sidebar = () => {
                     />
                 </div>
                 <button className="filter-btn">
-                    <Filter size={18} color="#54656f" />
+                    <Filter size={18} color={iconColor} />
                 </button>
             </div>
 

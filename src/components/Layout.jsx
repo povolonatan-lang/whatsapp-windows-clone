@@ -6,7 +6,13 @@ import './Layout.css';
 const Layout = () => {
     // Check if we are in a chat route
     const isChatOpen = useMatch('/chat/:id');
-    const isMobile = window.innerWidth < 768; // simple check, better with resize listener or CSS media query logic handles display
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className="app-container">

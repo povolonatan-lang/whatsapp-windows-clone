@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     padding: 0 12px;
-    background-color: #fff;
+    background-color: var(--white-background);
 }
 
 .search-wrapper {
@@ -73,7 +73,7 @@
 .contact-list-container {
     flex: 1;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--white-background);
 }
 
 .contact-row {
@@ -82,7 +82,7 @@
     align-items: center;
     padding: 0 12px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: var(--white-background);
 }
 
 .contact-row:hover {
@@ -94,6 +94,7 @@
     height: 49px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top;
     margin-right: 13px;
 }
 
@@ -117,7 +118,7 @@
 
 .contact-name {
     font-size: 17px;
-    color: #111b21;
+    color: var(--text-primary);
 }
 
 .contact-time {

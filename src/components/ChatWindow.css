@@ -26,6 +26,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top;
     margin-right: 15px;
     cursor: pointer;
 }
@@ -39,7 +40,7 @@
 
 .header-name {
     font-size: 16px;
-    color: #111b21;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -114,7 +115,7 @@
 }
 
 .message-text {
-    color: #111b21;
+    color: var(--text-primary);
     word-wrap: break-word;
     /* Ensure long words break */
 }
@@ -164,10 +165,10 @@
     padding: 9px 12px;
     border-radius: 8px;
     border: none;
-    background-color: #fff;
+    background-color: var(--input-background);
     font-size: 15px;
     outline: none;
-    color: #111b21;
+    color: var(--text-primary);
 }
 
 .input-form input::placeholder {

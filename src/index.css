@@ -29,6 +29,36 @@
   /* Grey ticks */
 
   --danger: #ef4444;
+
+  /* Semantic Variables for Theming */
+  --white-background: #ffffff;
+  --text-primary: #111b21;
+  --input-background: #ffffff;
+}
+
+body.dark-mode {
+  --app-background: #090e11;
+  --intro-background: #202c33;
+  --panel-header-background: #202c33;
+  --conversation-panel-background: #0b141a;
+  --incoming-background: #202c33;
+  --outgoing-background: #005c4b;
+  --dropdown-background: #233138;
+
+  --primary-strong: #e9edef;
+  --secondary: #8696a0;
+  --secondary-lighter: #667781;
+
+  --border-default: #222e35;
+  --border-strong: #222e35;
+
+  --system-message-text: #8696a0;
+  --unread-marker-background: #00a884;
+  --icon-ack: #53bdeb;
+
+  --white-background: #111b21;
+  --text-primary: #e9edef;
+  --input-background: #2a3942;
 }
 
 body {
