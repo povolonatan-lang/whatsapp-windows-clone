@@ -1,7 +1,7 @@
 # WhatsApp Web Clone
 
 ## Descripción del Desafío
-Este proyecto consiste en una réplica fiel de la interfaz de WhatsApp Web, desarrollada con **React** y **Vite**. La aplicación simula la experiencia de mensajería con un diseño "pixel-perfect" basado en el tema claro original.
+Este proyecto consiste en una réplica fiel de la interfaz de WhatsApp Web, desarrollada con **React** y **Vite**. La aplicación simula la experiencia de mensajería con un diseño basado en el tema claro original.
 
 ## Funcionalidades
 - **Diseño Responsivo**: Adaptable a pantallas desde 320px hasta 2000px.
